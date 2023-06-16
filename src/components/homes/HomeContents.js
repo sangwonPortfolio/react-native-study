@@ -12,6 +12,7 @@ import styles from '../../styles/home/index';
 
 const contentList = [
   {
+    contentpkey: 1,
     profileimg: require('../../assets/images/profiles/profileImage3.jpeg'),
     name: 'ch_sangwon',
     content: require('../../assets/images/contents/imageTest2.jpeg'),
@@ -19,6 +20,7 @@ const contentList = [
     contentmsg: '짱구는 못말려',
   },
   {
+    contentpkey: 2,
     profileimg: require('../../assets/images/profiles/profileImage2.jpeg'),
     name: 'ch_sangwon',
     content: require('../../assets/images/contents/content2.jpeg'),
@@ -26,6 +28,7 @@ const contentList = [
     contentmsg: '\n뒹굴뒹굴 ~~\n뒹굴뒹굴 ~~',
   },
   {
+    contentpkey: 3,
     profileimg: require('../../assets/images/profiles/profileImage4.jpeg'),
     name: 'ch_sangwon',
     content: require('../../assets/images/contents/imageTest2.jpeg'),
@@ -59,9 +62,10 @@ const HomeContents = () => {
   return (
     <SafeAreaView style={styles.homeContentStyles.HomeContentContainer}>
       {contentList.map((item, index) => {
-        console.log('aaaaaaa index : ', index);
         return (
-          <View key={index} style={styles.homeContentStyles.contentItem}>
+          <View
+            key={item.contentpkey}
+            style={styles.homeContentStyles.contentItem}>
             <View style={styles.homeContentStyles.contentProfileGroup}>
               <Image
                 style={styles.homeContentStyles.contentProfileImg}
@@ -72,6 +76,7 @@ const HomeContents = () => {
               </Text>
             </View>
             <TouchableOpacity
+              activeOpacity={1} // 깜빡임 조절하기
               style={styles.homeContentStyles.touchableWithoutFeedback}
               onPress={contentOnPress}>
               <ImageBackground
