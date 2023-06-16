@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import styles from '../../styles/search/index';
 
 const contentList = [
@@ -30,19 +37,49 @@ const contentList = [
           '엄만 절대 널 미워하지 않아.',
         regdate: '2023-06-16 12:13:00',
       },
-    ],
-  },
-  {
-    categorypkey: 2,
-    contents: [
       {
         contentpkey: 4,
         title: '짱구 뒹굴뒹굴 !!',
         content: '조금 먹었더니 오히려 배가 더 고파졌어',
         regdate: '2023-06-16 12:13:00',
       },
+    ],
+  },
+  {
+    categorypkey: 2,
+    contents: [
       {
         contentpkey: 5,
+        title: '짱구 뒹굴뒹굴 !!',
+        content: '조금 먹었더니 오히려 배가 더 고파졌어',
+        regdate: '2023-06-16 12:13:00',
+      },
+      {
+        contentpkey: 6,
+        title: '짱구 뒹굴뒹굴 !!',
+        content: '난 일요일만큼은 집에서 쉬고 싶다고',
+        regdate: '2023-06-16 12:13:00',
+      },
+      {
+        contentpkey: 7,
+        title: '짱구 뒹굴뒹굴 !!',
+        content: '난 일요일만큼은 집에서 쉬고 싶다고',
+        regdate: '2023-06-16 12:13:00',
+      },
+      {
+        contentpkey: 8,
+        title: '짱구 뒹굴뒹굴 !!',
+        content: '난 일요일만큼은 집에서 쉬고 싶다고',
+        regdate: '2023-06-16 12:13:00',
+      },
+      {
+        contentpkey: 9,
+        title: '짱구 뒹굴뒹굴 !!',
+        content: '난 일요일만큼은 집에서 쉬고 싶다고',
+        regdate: '2023-06-16 12:13:00',
+      },
+      {
+        contentpkey: 10,
         title: '짱구 뒹굴뒹굴 !!',
         content: '난 일요일만큼은 집에서 쉬고 싶다고',
         regdate: '2023-06-16 12:13:00',
@@ -53,7 +90,29 @@ const contentList = [
   {categorypkey: 4, contents: []},
   {categorypkey: 5, contents: []},
   {categorypkey: 6, contents: []},
+  {categorypkey: 7, contents: []},
+  {categorypkey: 8, contents: []},
 ];
+
+const renderItem = ({item}) => {
+  return (
+    <View
+      key={item.contentpkey}
+      style={styles.categoryContentsStyles.contentItem}>
+      <TouchableOpacity>
+        <View>
+          <Text style={styles.categoryContentsStyles.title}>{item.title}</Text>
+          <Text style={styles.categoryContentsStyles.content}>
+            {item.content}
+          </Text>
+        </View>
+        <Text style={styles.categoryContentsStyles.regdate}>
+          {item.regdate}
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 /**
  * 카테고리별 게시물
@@ -73,25 +132,18 @@ const categoryContents = props => {
 
   return (
     <SafeAreaView style={styles.categoryContentsStyles.categoryContentsArea}>
-      {contents.map((item, idx) => {
-        return (
-          <View style={styles.categoryContentsStyles.contentItem}>
-            <TouchableOpacity key={item.contentpkey}>
-              <View>
-                <Text style={styles.categoryContentsStyles.title}>
-                  {item.title}
-                </Text>
-                <Text style={styles.categoryContentsStyles.content}>
-                  {item.content}
-                </Text>
-              </View>
-              <Text style={styles.categoryContentsStyles.regdate}>
-                {item.regdate}
-              </Text>
-            </TouchableOpacity>
+      <FlatList
+        data={contents}
+        renderItem={renderItem}
+        keyExtractor={item => String(item.contentpkey)}
+        ListEmptyComponent={() => (
+          <View>
+            <Text style={styles.categoryContentsStyles.contentEmptyText}>
+              게시물이 없습니다.
+            </Text>
           </View>
-        );
-      })}
+        )}
+      />
     </SafeAreaView>
   );
 };

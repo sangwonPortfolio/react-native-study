@@ -55,15 +55,15 @@ const searchCategoryStyles = StyleSheet.create({
 
 const categoryContentsStyles = StyleSheet.create({
   categoryContentsArea: {
-    // color: 'white',
     marginTop: 10,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
     borderTopWidth: 1,
     borderTopColor: 'gray',
+    flex: 1,
+    flexDirection: 'column',
+    width: '100%',
   },
   contentItem: {
-    // marginBottom: 10,
+    width: '100%',
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
     paddingTop: 5,
@@ -77,13 +77,18 @@ const categoryContentsStyles = StyleSheet.create({
   },
   content: {
     color: 'white',
-    fontsize: 20,
+    fontSize: 20,
     marginBottom: 5,
   },
   regdate: {
     color: 'gray',
     fontSize: 15,
     marginBottom: 5,
+  },
+  contentEmptyText: {
+    color: 'white',
+    paddingTop: 20,
+    fontSize: 20,
   },
 });
 

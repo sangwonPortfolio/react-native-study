@@ -4,20 +4,34 @@ import styles from '../../styles/home/index';
 
 const storyList = [
   {
-    name: 'ch_sangwon',
+    storypkey: 1,
+    name: '내스토리',
     image: require('../../assets/images/profiles/profileImage4.jpeg'),
+    newStory: false,
   },
   {
+    storypkey: 2,
     name: 'sangwon',
     image: require('../../assets/images/profiles/profileImage2.jpeg'),
+    newStory: true,
   },
   {
+    storypkey: 3,
     name: 'ch_sangwon',
     image: require('../../assets/images/profiles/profileImage3.jpeg'),
+    newStory: true,
   },
   {
+    storypkey: 4,
     name: 'sangwon',
     image: require('../../assets/images/profiles/profileImage2.jpeg'),
+    newStory: false,
+  },
+  {
+    storypkey: 5,
+    name: 'sangwon',
+    image: require('../../assets/images/profiles/profileImage4.jpeg'),
+    newStory: false,
   },
 ];
 
@@ -27,24 +41,18 @@ const HomeStory = () => {
       horizontal={true}
       showsHorizontalScrollIndicator={false}
       style={styles.homeStoryStyles.homeStoryContainer}>
-      <View style={styles.homeStoryStyles.storyItem}>
-        <Image
-          source={require('../../assets/images/profiles/profileTest.jpeg')}
-          style={styles.homeStoryStyles.memberProfile}
-        />
-        <Text style={styles.homeStoryStyles.memberName}>내 스토리</Text>
-      </View>
       {storyList.map((v, index) => {
         return (
-          <View key={index} style={styles.homeStoryStyles.storyItem}>
+          <View key={v.storypkey} style={styles.homeStoryStyles.storyItem}>
             <Image
-              key={index}
               source={v.image}
-              style={styles.homeStoryStyles.memberProfile}
+              style={
+                v.newStory === true
+                  ? styles.homeStoryStyles.newStoryMemberProfile
+                  : styles.homeStoryStyles.memberProfile
+              }
             />
-            <Text key={index} style={styles.homeStoryStyles.memberName}>
-              {v.name}
-            </Text>
+            <Text style={styles.homeStoryStyles.memberName}>{v.name}</Text>
           </View>
         );
       })}

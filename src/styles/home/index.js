@@ -115,6 +115,13 @@ const homeStoryStyles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 1,
   },
+  newStoryMemberProfile: {
+    width: 80,
+    height: 80,
+    borderRadius: 80,
+    borderColor: 'pink',
+    borderWidth: 4,
+  },
   memberName: {
     marginTop: 5,
     color: 'white',
