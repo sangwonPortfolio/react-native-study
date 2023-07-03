@@ -11,7 +11,7 @@ const homeScreenStyles = StyleSheet.create({
 const homeHeaderStyles = StyleSheet.create({
   home_header_container: {
     flexDirection: 'row',
-    // marginTop: 100,
+    height: 40,
   },
   area: {
     flex: 1,
@@ -39,13 +39,46 @@ const homeHeaderStyles = StyleSheet.create({
   },
 });
 
+const homeStoryStyles = StyleSheet.create({
+  homeStoryContainer: {
+    marginTop: 5,
+    height: 110,
+    flexDirection: 'row',
+    width: '100%',
+  },
+  storyItem: {
+    marginLeft: 6,
+    alignItems: 'center',
+  },
+  memberProfile: {
+    width: 80,
+    height: 80,
+    borderRadius: 80,
+    borderColor: 'white',
+    borderWidth: 1,
+  },
+  newStoryMemberProfile: {
+    width: 80,
+    height: 80,
+    borderRadius: 80,
+    borderColor: 'pink',
+    borderWidth: 4,
+  },
+  memberName: {
+    marginTop: 5,
+    color: 'white',
+  },
+});
+
 const homeContentStyles = StyleSheet.create({
   HomeContentContainer: {
     width: '100%',
+    flex: 1, // flex: 1 안하면 스크롤이 끝까지 안내려감
   },
   contentItem: {
-    marginTop: 15,
+    marginTop: 5,
     width: '100%',
+    marginBottom: 10,
   },
   contentProfileGroup: {
     flexDirection: 'row',
@@ -92,39 +125,6 @@ const homeContentStyles = StyleSheet.create({
     marginLeft: 10,
     lineHeight: 25,
     fontWeight: 300,
-  },
-});
-
-const homeStoryStyles = StyleSheet.create({
-  homeStoryContainer: {
-    marginTop: 10,
-    height: 110,
-    flexDirection: 'row',
-    width: '100%',
-    borderBottomWidth: 1,
-    borderColor: 'gray',
-  },
-  storyItem: {
-    marginLeft: 6,
-    alignItems: 'center',
-  },
-  memberProfile: {
-    width: 80,
-    height: 80,
-    borderRadius: 80,
-    borderColor: 'white',
-    borderWidth: 1,
-  },
-  newStoryMemberProfile: {
-    width: 80,
-    height: 80,
-    borderRadius: 80,
-    borderColor: 'pink',
-    borderWidth: 4,
-  },
-  memberName: {
-    marginTop: 5,
-    color: 'white',
   },
 });
 

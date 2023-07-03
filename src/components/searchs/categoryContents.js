@@ -4,7 +4,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ScrollView,
   FlatList,
 } from 'react-native';
 import styles from '../../styles/search/index';
@@ -94,12 +93,19 @@ const contentList = [
   {categorypkey: 8, contents: []},
 ];
 
+const contentHandle = contentpkey => {
+  console.log('contentpkey : ', contentpkey);
+};
+
 const renderItem = ({item}) => {
   return (
     <View
       key={item.contentpkey}
       style={styles.categoryContentsStyles.contentItem}>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={e => {
+          contentHandle(item.contentpkey);
+        }}>
         <View>
           <Text style={styles.categoryContentsStyles.title}>{item.title}</Text>
           <Text style={styles.categoryContentsStyles.content}>
@@ -136,6 +142,7 @@ const categoryContents = props => {
         data={contents}
         renderItem={renderItem}
         keyExtractor={item => String(item.contentpkey)}
+        showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <View>
             <Text style={styles.categoryContentsStyles.contentEmptyText}>
